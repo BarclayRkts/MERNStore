@@ -11,13 +11,14 @@ export default class ProductBox extends Component {
         }
     } 
     handleClick = () => {
-        alert('this handle click')
+        //alert('this handle click')
         this.setState({
             toggle: !this.state.toggle,
         });
     }
     render() {
         return (
+        <Route>
             <div className='containerBox'>
                     <div className='imgBox'>
                     <Link to= {`/product/${this.props.id}`} onClick={this.handleClick}>
@@ -26,9 +27,15 @@ export default class ProductBox extends Component {
                         <span className='price'>{this.props.price}</span>
                     </Link>  
                     </div>
-                    {this.state.toggle ? <Product title={this.props.title} price={this.props.price} img={this.props.img}/> : null} 
+                    {this.state.toggle ?  
+                        <Product status={this.state.toggle} title={this.props.title} price={this.props.price} img={this.props.img}/>
+                    : null} 
+                    
+                    {/*this.state.toggle ?  
+                        <Route path={`/product/${this.props.id}`}><Product status={this.state.toggle} title={this.props.title} price={this.props.price} img={this.props.img}/></Route>
+                    : null*/} 
             </div>
-            
+        </Route>
         )
     }
 }
