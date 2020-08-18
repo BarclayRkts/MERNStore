@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './style/ProductBox.css';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Product from './Product';
+import ProductInfo from './ProductInfo';
 
 export default class ProductBox extends Component {
     constructor(props){

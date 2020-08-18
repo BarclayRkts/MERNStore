@@ -41,14 +41,20 @@ router.get('/upload', (req, res) => {
     console.log('this localhost/product');
 });
 
-// get item fro product detail page
+// get item from product detail page
 //products_by_id"
-router.get("/id", (req, res) => {
-    let type = req.body.type
-    // let productIds = req.query.id
+//?id=${productId}&type=single
+//api/items
+router.get("/products_by_id", (req, res) => {
+    // let type = req.body.type
+    //let productIds = req.query.id
+    let type = req.query.type
+    let productIds = req.query.id
 
+    console.log(`this is type - ${type}`);
+    console.log(` this is productsIds - ${productIds}`);
     // console.log("req.query.id", req.query.id)
-    let productIds = req.body._id
+    //let productIds = req.body._id
     console.log(productIds)
     if (type === "array") {
         let ids = req.query.id.split(',');

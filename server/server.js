@@ -15,6 +15,7 @@ mongoose.connect(db, {useUnifiedTopology: true, useNewUrlParser: true})
 
     // Use Routes
     app.use('/api/items', items);
+    app.use('/api/items/product', items);
 
     // // Upload route for products
     // app.use('api/product/upload', products);

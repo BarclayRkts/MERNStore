@@ -1,48 +1,29 @@
 //make request get to db to get all info and display
-import React, { Component } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
-class Product extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            products: []
-        }
-    }
-    componentDidMount = () => {
-        this.getAllProducts();
-    }
-    // toggle(){
-    //     alert('this toggling inside the home');
-    //     this.setState({
-    //         isOpen: !this.state.isOpen
-    //     });
-    // }
-    getAllProducts = () => {
-        axios.get('/api/items/id').then((res) => {
-            const data = res.data;
-            this.setState({ products: data});
-            console.log('All products recieved!!')
-            console.log(this.state);
+
+export default function ProductInfo(props) {
+
+    const productId = props.match.params.productId;
+    const [Product, setProduct] = useState([])
+    // console.log(` the variable productId - ${productId}`);
+    //console.log(`the variable Product  - ${Product}`);
+
+    useEffect(() => {
+        //api/items
+        ///api/items/product/products_by_id?id=${productId}&type=single
+        axios.get(`/api/items/product/products_by_id?id=${productId}&type=single`)
+            .then(response => {
+                setProduct(response.data[0])
             })
-    .catch(() => {
-        alert("error retrieveing data")
-    }); 
-    }
-    render() {
-        return (
-            <div>
-            This product information
-            {this.state.products}
-            {
-                this.state.products.map((item,i) => <div key={i}>{item.price}</div>)
 
-            }
+    }, [])
 
-            {/*console.log(this.state.products.price)*/}
-            </div>
-        )
-    }
+    return (
+        <div>
+        {Product.title}
+        {console.log(`the variable Product  - ${Product}`)}
+        </div>
+    )
 }
-
-export default Product;

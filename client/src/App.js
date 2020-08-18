@@ -5,6 +5,7 @@ import Form from './components/Form';
 import AppNavbar from './components/AppNavbar';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Product from './components/Product';
+import ProductInfo from './components/ProductInfo';
 
 class App extends Component {
   constructor(props){
@@ -31,7 +32,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/product/upload" exact component={Form}></Route>
-          <Route path={`/product/:id`} exact component={Product}></Route>
+          <Route path={`/product/:productId`} exact component={Product}></Route>
         </Switch>
       </div>
     </Router>
