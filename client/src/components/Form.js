@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Dropdown from './Dropdown';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import './style/Form.css';
 import { withRouter } from 'react-router-dom';
 import { Container} from 'reactstrap';

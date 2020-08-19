@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Container, Button} from 'reactstrap';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Home from "./Home";
-import Form from "./Form";
+import { Navbar, NavbarBrand, Nav, NavItem, Container, Button, Collapse} from 'reactstrap';
+import { BrowserRouter as Router } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import './style/AppNavbar.css';
+
+library.add(fas);
 
 class AppNavbar extends Component {
     constructor(props){
@@ -35,7 +39,7 @@ class AppNavbar extends Component {
                             </NavItem>
                         </Nav>*/}
                         {/*<NavbarToggler onClick={this.toggle}>Toggle</NavbarToggler>*/}
-                        {/*<Collapse isOpen={this.state.isOpen} navbar>*/}
+                        <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             {/*<NavItem>
                                 <NavLink color="light" to='/'>Customer Service</NavLink>
@@ -49,9 +53,11 @@ class AppNavbar extends Component {
 
                                 {/*<Link className="FormBtn" to='/product/upload'>Add Product</Link>*/}
                             </NavItem>
-
+                            <NavItem>
+                                <FontAwesomeIcon className='cart' icon={['fas', 'shopping-cart']}/>
+                            </NavItem>
                         </Nav>
-                        {/*</Collapse>*/}
+                        </Collapse>
                     </Container>
                 </Navbar>    
             </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Form from './Form';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container} from 'reactstrap';
@@ -17,12 +16,7 @@ export default class Home extends Component {
     componentDidMount = () => {
         this.getAllProducts();
     }
-    // toggle(){
-    //     alert('this toggling inside the home');
-    //     this.setState({
-    //         isOpen: !this.state.isOpen
-    //     });
-    // }
+
     getAllProducts = () => {
         axios.get('/api/items').then((res) => {
             const data = res.data;
@@ -34,7 +28,6 @@ export default class Home extends Component {
         alert("error retrieveing data")
     }); 
     }
-    //{/*<div title={item.title}>title: {item.title}, description: {item.description}!</div>*/}
     render() {
     return (
         <div>
@@ -42,7 +35,7 @@ export default class Home extends Component {
                 <h1 id='title'>Sell Your Products Here Today!</h1>
             
                 {this.state.products.map((item, index) => (
-                    <ProductBox title={item.title} img={item.pictureURL} price={item.price} id={item._id}/>
+                    <ProductBox key={item._id} title={item.title} img={item.pictureURL} price={item.price} id={item._id}/>
                 ))}
             </Container>
         </div>

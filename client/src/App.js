@@ -1,11 +1,10 @@
-import React, { Component, useState} from 'react';
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/Home";
 import Form from './components/Form';
 import AppNavbar from './components/AppNavbar';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Product from './components/Product';
-import ProductInfo from './components/ProductInfo';
 
 class App extends Component {
   constructor(props){

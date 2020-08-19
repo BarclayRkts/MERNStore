@@ -1,9 +1,12 @@
 //make request get to db to get all info and display
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import ProductInfo from './ProductInfo';
+import { Container, Row, Col } from 'reactstrap';
 
+import ProductImage from './ProductImage';
 
-export default function ProductInfo(props) {
+export default function Product(props) {
 
     const productId = props.match.params.productId;
     const [Product, setProduct] = useState([])
@@ -21,9 +24,16 @@ export default function ProductInfo(props) {
     }, [])
 
     return (
-        <div>
-        {Product.title}
-        {console.log(`the variable Product  - ${Product}`)}
+        <div className="postPage" style={{ width: '100%', padding: '3rem 4rem' }}>
+        <Container>
+        <Row>
+            <Col xs="6"><ProductImage detail={Product}/>
+            </Col>
+
+            <Col xs="6"><ProductInfo detail={Product}/>
+            </Col>
+        </Row>
+        </Container>
         </div>
     )
 }

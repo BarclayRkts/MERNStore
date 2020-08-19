@@ -46,16 +46,15 @@ router.get('/upload', (req, res) => {
 //?id=${productId}&type=single
 //api/items
 router.get("/products_by_id", (req, res) => {
-    // let type = req.body.type
-    //let productIds = req.query.id
+    //get the type which is single
     let type = req.query.type
+
+    //gets the product id
     let productIds = req.query.id
 
     console.log(`this is type - ${type}`);
     console.log(` this is productsIds - ${productIds}`);
-    // console.log("req.query.id", req.query.id)
-    //let productIds = req.body._id
-    console.log(productIds)
+    
     if (type === "array") {
         let ids = req.query.id.split(',');
         productIds = [];
@@ -63,9 +62,6 @@ router.get("/products_by_id", (req, res) => {
             return item
         })
     }
-
-    // console.log("productIds", productIds)
-
     
     //we need to find the product information that belong to product Id 
     Item.find({ '_id': { $in: productIds } })
