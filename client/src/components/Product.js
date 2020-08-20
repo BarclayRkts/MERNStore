@@ -29,7 +29,7 @@ export default function Product(props) {
             <Container>
             
             <Row>
-                <Col xs="6"><ProductImage detail={Product}/>
+                <Col xs="6" className='ProductImage'><ProductImage detail={Product}/>
                 </Col>
 
                 <Col xs="6"><ProductInfo detail={Product}/>

@@ -1,6 +1,6 @@
 Todo List 
 ----------------------
-get picture to work on productimage
+make images bigger
 make image responsive
 add country input field to form
 link shooping cart
