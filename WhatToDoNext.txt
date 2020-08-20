@@ -1,0 +1,16 @@
+Todo List 
+----------------------
+get picture to work on productimage
+make image responsive
+add country input field to form
+link shooping cart
+add shopping cart page
+make add to cart button work
+style home page. form, and productbox 
+
+
+Things to Add
+----------------------
+Add Login and Authorization 
+
+

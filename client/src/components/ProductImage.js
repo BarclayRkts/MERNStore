@@ -3,7 +3,7 @@ import React from 'react'
 export default function ProductImage(props) {
     return (
         <div>
-            <img src={props.detail.image}/>
+            <img className="productImg" src={props.detail.pictureURL} alt={props.detail.title}/>
         </div>
     )
 }

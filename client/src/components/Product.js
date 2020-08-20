@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ProductInfo from './ProductInfo';
 import { Container, Row, Col } from 'reactstrap';
-
+import './style/Product.css'
 import ProductImage from './ProductImage';
 
 export default function Product(props) {
@@ -24,16 +24,22 @@ export default function Product(props) {
     }, [])
 
     return (
-        <div className="postPage" style={{ width: '100%', padding: '3rem 4rem' }}>
-        <Container>
-        <Row>
-            <Col xs="6"><ProductImage detail={Product}/>
-            </Col>
+        <div className="postPage">
+            <h1 className='productTitle'>{Product.title}</h1>
+            <Container>
+            
+            <Row>
+                <Col xs="6"><ProductImage detail={Product}/>
+                </Col>
 
-            <Col xs="6"><ProductInfo detail={Product}/>
-            </Col>
-        </Row>
-        </Container>
+                <Col xs="6"><ProductInfo detail={Product}/>
+                </Col>
+            </Row>
+            </Container>
+            
+            <Container className='btnContainer'>
+                <button className='cartBtn'>Add to Cart</button>
+            </Container>
         </div>
     )
 }

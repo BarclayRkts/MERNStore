@@ -25,9 +25,6 @@ class App extends Component {
     <Router>
       <div className="App">
         <AppNavbar/>
-        {/*<AppNavbar handleClick={this.toggle}/>*/}
-        {/*this.state.isOpen ? <Form handleClick={this.toggle}/> : null*/}
-        {/*<Home/>*/}
         <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/product/upload" exact component={Form}></Route>
