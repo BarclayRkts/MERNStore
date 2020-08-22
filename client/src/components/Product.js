@@ -1,15 +1,20 @@
 //make request get to db to get all info and display
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import axios from 'axios';
 import ProductInfo from './ProductInfo';
 import { Container, Row, Col } from 'reactstrap';
 import './style/Product.css'
 import ProductImage from './ProductImage';
+import Cart from './Cart';
+import {CartProvider} from './CartContext';
+import {CartContext} from './CartContext';
 
 export default function Product(props) {
 
     const productId = props.match.params.productId;
-    const [Product, setProduct] = useState([])
+    const [Product, setProduct] = useState([]);
+    const [cart, setCart] = useContext(CartContext);
+
     // console.log(` the variable productId - ${productId}`);
     //console.log(`the variable Product  - ${Product}`);
 
@@ -23,7 +28,15 @@ export default function Product(props) {
 
     }, [])
 
+    // select product to cart
+    const addToCart = (evt) => {
+        console.log('its clicked');
+        const product = {title: props.title, price: props.price}
+        setCart(currentCart => [...currentCart, product])
+    }
+
     return (
+    <CartProvider>
         <div className="postPage">
             <h1 className='productTitle'>{Product.title}</h1>
             <Container>
@@ -38,8 +51,10 @@ export default function Product(props) {
             </Container>
             
             <Container className='btnContainer'>
-                <button className='cartBtn'>Add to Cart</button>
+                <Cart/>
+                <button className='cartBtn' onClick={addToCart}>Add to Cart</button>
             </Container>
         </div>
+    </CartProvider>
     )
 }

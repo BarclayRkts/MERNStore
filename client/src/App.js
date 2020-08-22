@@ -14,13 +14,6 @@ class App extends Component {
       isOpen: false
     }
   }
-//   toggle = () => {
-//     // alert('toggleing in App.js');
-//     this.setState({
-//         isOpen: !this.state.isOpen
-//     });
-// }
-
   render() {
   return (
     <Router>

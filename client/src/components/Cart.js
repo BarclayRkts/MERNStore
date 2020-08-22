@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Table } from 'reactstrap';
+import { CartContext } from './CartContext';
 
 export default function Cart(props) {
+    const [cart, setCart] = useContext(CartContext);
     return (
         <div>
         <h5 className='infoTitle'>My Cart</h5>
+        <p>total items in cart : {cart.length}</p>
         <Table>
         <thead>
             <tr>
