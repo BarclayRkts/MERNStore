@@ -4,7 +4,7 @@ const router = express.Router();
 //Iteam Model 
 const Item = require('../models/Item');
 
-// @route GET shop
+// @route GET home
 // @desc GET ALL Iteams
 // @access PUBLIC
 
@@ -52,8 +52,8 @@ router.get("/products_by_id", (req, res) => {
     //gets the product id
     let productIds = req.query.id
 
-    console.log(`this is type - ${type}`);
-    console.log(` this is productsIds - ${productIds}`);
+    // console.log(`this is type - ${type}`);
+    // console.log(` this is productsIds - ${productIds}`);
     
     if (type === "array") {
         let ids = req.query.id.split(',');

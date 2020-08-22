@@ -6,6 +6,7 @@ import './style/Form.css';
 import { withRouter } from 'react-router-dom';
 import { Container} from 'reactstrap';
 import { useHistory } from 'react-router-dom';
+import { CountryDropdown } from 'react-country-region-selector';
 
 function Form(props) {
     
@@ -13,6 +14,7 @@ function Form(props) {
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [pictureURL, setPictureURL] = useState('');
+    const [country, setCountry]= useState('');
     const history = useHistory();
     
     const handleSubmit = (evt, props) => { 
@@ -25,7 +27,8 @@ function Form(props) {
             title: title,
             description: description,
             price: price,
-            pictureURL: pictureURL
+            pictureURL: pictureURL,
+            country: country
         }
 
         axios({
@@ -39,6 +42,14 @@ function Form(props) {
             console.log('internal server error')
         })
         history.push('/');
+    }
+    
+    // const handleSelect=(e)=>{
+    //     console.log(e);
+    //     setdropDown(e);
+    // }
+    const selectCountry = (e) => {
+        setCountry(e);
     }
     
     return (
@@ -64,7 +75,7 @@ function Form(props) {
                 </div>
                 <div className='country'>
                     <h2>Country</h2>
-                    <Dropdown name='country'/>
+                    <CountryDropdown name='country' value={country} onChange={(val) => selectCountry(val)} />
                 </div>
                 <button className='submitBtn' type='submit'>Submit</button>
                 <button type="button" id='exitBtn' onClick={() => history.push('/')}>X</button>

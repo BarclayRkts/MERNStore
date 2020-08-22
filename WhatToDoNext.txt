@@ -2,11 +2,11 @@ Todo List
 ----------------------
 make images bigger
 make image responsive
-add country input field to form
-link shooping cart
+link shopping cart
 add shopping cart page
 make add to cart button work
 style home page. form, and productbox 
+fix all warnings/errors on server side
 
 
 Things to Add

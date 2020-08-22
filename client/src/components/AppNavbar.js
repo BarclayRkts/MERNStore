@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Nav, NavItem, Container, Button, Collapse} from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavItem, Container, Button, Collapse, NavLink} from 'reactstrap';
 import { BrowserRouter as Router } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -53,8 +53,8 @@ class AppNavbar extends Component {
 
                                 {/*<Link className="FormBtn" to='/product/upload'>Add Product</Link>*/}
                             </NavItem>
-                            <NavItem>
-                                <FontAwesomeIcon className='cart' icon={['fas', 'shopping-cart']}/>
+                            <NavItem href='/user/cart'>
+                                    <FontAwesomeIcon className='cart' icon={['fas', 'shopping-cart']}/>
                             </NavItem>
                         </Nav>
                         </Collapse>
